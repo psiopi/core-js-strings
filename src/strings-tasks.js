@@ -190,10 +190,8 @@ function removeLastOccurrences(str, value) {
  */
 function sumOfCodes(str) {
   if (!str) return 0;
-  return str[Symbol.iterator]().reduce(
-    (sum, charToUnicode) => sum + charToUnicode.codePointAt(0),
-    0
-  );
+  const unicodeChar = [...str].map((char) => char.codePointAt(0));
+  return unicodeChar.reduce((accum, code) => accum + code, 0);
 }
 
 /**
